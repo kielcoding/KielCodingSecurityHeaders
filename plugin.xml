@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../engine/Shopware/Components/Plugin/schema/plugin.xsd">
+    <label>Security Headers</label>
+    <version>1.0.0</version>
+
+    <author>Kiel Coding</author>
+    <copyright>(c) by Kiel Coding</copyright>
+    <link>https://kielcoding.de</link>
+    <license>proprietary</license>
+    <compatibility minVersion="5.2.0" />
+
+    <changelog version="1.0.0">
+        <changes>Initial Release</changes>
+        <changes lang="de">Erste Veröffentlichung</changes>
+    </changelog>
+</plugin>

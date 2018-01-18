@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../../engine/Shopware/Components/Plugin/schema/config.xsd">
+    <elements>
+
+        <element type="boolean">
+            <name>strictTransportSecurityEnabled</name>
+            <label>Enable Strict-Transport-Security</label>
+            <label lang="de">Strict-Transport-Security aktivieren</label>
+            <value>true</value>
+        </element>
+        <element type="boolean">
+            <name>xFrameOptionsEnabled</name>
+            <label>Enable X-Frame-Options</label>
+            <label lang="de">X-Frame-Options aktivieren</label>
+            <value>true</value>
+        </element>
+        <element type="boolean">
+            <name>xXssProtectionEnabled</name>
+            <label>Enable X-XSS-Protection</label>
+            <label lang="de">X-XSS-Protection aktivieren</label>
+            <value>true</value>
+        </element>
+        <element type="boolean">
+            <name>xContentTypeOptionsEnabled</name>
+            <label>Enable X-Content-Type-Options</label>
+            <label lang="de">X-Content-Type-Options aktivieren</label>
+            <value>true</value>
+        </element>
+        <element type="boolean">
+            <name>referrerPolicyEnabled</name>
+            <label>Enable Referrer-Policy</label>
+            <label lang="de">Referrer-Policy aktivieren</label>
+            <value>true</value>
+        </element>
+        <element type="boolean">
+            <name>contentSecurityPolicyEnabled</name>
+            <label>Enable Content-Security-Policy</label>
+            <label lang="de">Content-Security-Policy aktivieren</label>
+            <value>true</value>
+        </element>
+        <element type="boolean">
+            <name>xPoweredByDisabled</name>
+            <label>Disable X-Powered-By</label>
+            <label lang="de">X-Powered-By deaktivieren</label>
+            <value>true</value>
+        </element>
+
+        <element>
+            <name>strictTransportSecurity</name>
+            <label>Strict-Transport-Security</label>
+            <value>max-age=31536000; includeSubDomains</value>
+        </element>
+        <element>
+            <name>xFrameOptions</name>
+            <label>X-Frame-Options</label>
+            <value>SAMEORIGIN</value>
+        </element>
+        <element>
+            <name>xXssProtection</name>
+            <label>X-XSS-Protection</label>
+            <value>1; mode=block</value>
+        </element>
+        <element>
+            <name>xContentTypeOptions</name>
+            <label>X-Content-Type-Options</label>
+            <value>nosniff</value>
+        </element>
+        <element>
+            <name>referrerPolicy</name>
+            <label>Referrer-Policy</label>
+            <value>no-referrer</value>
+        </element>
+        <element>
+            <name>contentSecurityPolicy</name>
+            <label>Content-Security-Policy</label>
+            <value>default-src https:; script-src https: 'unsafe-inline' 'unsafe-eval' data:; style-src https: 'unsafe-inline'; font-src https: data:</value>
+        </element>
+        <element type="textarea">
+            <name>customHeaders</name>
+            <label>Custom Headers</label>
+            <label lang="de">Eigene Headers</label>
+            <description>E.g. X-Powered-By: My Company Name</description>
+            <description lang="de">Z.B. X-Powered-By: Mein Firmenname</description>
+        </element>
+    </elements>
+</config>
