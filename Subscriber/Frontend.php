@@ -107,7 +107,7 @@ class Frontend implements SubscriberInterface
             return [];
         }
 
-        $headers = explode('\n', $this->config['customHeaders']);
+        $headers = explode(PHP_EOL, $this->config['customHeaders']);
 
         $headersFormatted = [];
         foreach ($headers as $header) {
