@@ -66,9 +66,9 @@ class Frontend implements SubscriberInterface
         }
         if ($this->config['contentSecurityPolicyEnabled'] && $this->isSecure()) {
             if ($this->config['contentSecurityPolicyDebug']) {
-                $response->setHeader('Content-Security-Policy', $this->config['contentSecurityPolicy']);
-            } else {
                 $response->setHeader('Content-Security-Policy-Report-Only', $this->config['contentSecurityPolicy']);
+            } else {
+                $response->setHeader('Content-Security-Policy', $this->config['contentSecurityPolicy']);
             }
         }
     }

@@ -83,5 +83,13 @@
             <description>Split header name and value with ":"; split multiple headers with line break.E.g. X-Powered-By: My Company Name.</description>
             <description lang="de">Header-Name und -Wert mittels ":" trennen; mehrere Header mittels Zeilenumbruch trennen. Z.B. X-Powered-By: Mein Firmenname.</description>
         </element>
+        <element type="boolean">
+            <name>contentSecurityPolicyDebug</name>
+            <label>Debug mode for Security headers</label>
+            <label lang="de">Debug-Modus für Security-Headers</label>
+            <value>false</value>
+            <description>If enabled the "Content-Security-Policy-Report-Only" header will be set (good for testing header configuration).</description>
+            <description lang="de">Wenn aktiviert, wird der "Content-Security-Policy-Report-Only" Header gesetzt (Sinnvoll, um Header-Konfigurationen zu testen).</description>
+        </element>
     </elements>
 </config>
