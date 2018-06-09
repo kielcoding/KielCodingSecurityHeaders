@@ -2,13 +2,18 @@
 <plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="../../../engine/Shopware/Components/Plugin/schema/plugin.xsd">
     <label>Security Headers</label>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
 
-    <author>Kiel Coding</author>
-    <copyright>(c) by Kiel Coding</copyright>
-    <link>https://kielcoding.de</link>
+    <author>KielCoding</author>
+    <copyright>(c) KielCoding</copyright>
+    <link>https://www.kielcoding.de</link>
     <license>proprietary</license>
     <compatibility minVersion="5.2.0" />
+
+    <changelog version="1.2.0">
+        <changes>Custom header url bugfix and code cleanup.</changes>
+        <changes lang="de">Eigene Header URL Bugfix und Code-Bereinigung.</changes>
+    </changelog>
 
     <changelog version="1.1.0">
         <changes>Fix event</changes>

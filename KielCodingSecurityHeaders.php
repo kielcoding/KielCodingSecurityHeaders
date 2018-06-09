@@ -30,9 +30,20 @@ class KielCodingSecurityHeaders extends Plugin
      */
     public function build(ContainerBuilder $container)
     {
-        $container->setParameter($this->getContainerPrefix() . '.plugin_dir', $this->getPath());
-        $container->setParameter($this->getContainerPrefix() . '.plugin_name', $this->getName());
+        $container->setParameter('kiel_coding_security_headers.plugin_dir', $this->getPluginPath());
 
         parent::build($container);
+    }
+
+    /**
+     * Gets the Plugin directory path.
+     *
+     * @return string The Plugin absolute path
+     */
+    public function getPluginPath()
+    {
+        $reflected = new \ReflectionObject($this);
+
+        return dirname($reflected->getFileName());
     }
 }

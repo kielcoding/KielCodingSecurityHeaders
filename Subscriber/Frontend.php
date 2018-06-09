@@ -3,28 +3,22 @@
 namespace KielCodingSecurityHeaders\Subscriber;
 
 use Enlight\Event\SubscriberInterface;
-use Shopware\Models\Shop\DetachedShop;
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use Shopware\Components\Plugin\CachedConfigReader;
 
 class Frontend implements SubscriberInterface
 {
     /**
-     * @var ContainerInterface
-     */
-    private $container;
-
-    /**
-     * @var
+     * @var array
      */
     private $config;
 
     /**
-     * @param ContainerInterface $container
+     * @param CachedConfigReader $configReader
+     * @param string             $pluginName
      */
-    public function __construct(ContainerInterface $container)
+    public function __construct(CachedConfigReader $configReader, $pluginName)
     {
-        $this->container = $container;
-        $this->config = $this->getPluginConfig();
+        $this->config = $configReader->getByPluginName($pluginName, Shopware()->Shop());
     }
 
     /**
@@ -42,11 +36,12 @@ class Frontend implements SubscriberInterface
      */
     public function onPostDispatch(\Enlight_Controller_ActionEventArgs $args)
     {
+        /** @var \Enlight_Controller_Response_ResponseHttp $response */
         $response = $args->getResponse();
 
         $this->setSecurityHeaders($response);
         $this->setCustomHeaders($response);
-        $this->removeInsecureHeaders($response);
+        $this->removeInsecureHeaders();
     }
 
     /**
@@ -88,10 +83,7 @@ class Frontend implements SubscriberInterface
         }
     }
 
-    /**
-     * @param \Enlight_Controller_Response_ResponseHttp $response
-     */
-    private function removeInsecureHeaders(\Enlight_Controller_Response_ResponseHttp $response)
+    private function removeInsecureHeaders()
     {
         if ($this->config['xPoweredByDisabled']) {
             @ini_set('expose_php', 'off');
@@ -111,7 +103,8 @@ class Frontend implements SubscriberInterface
 
         $headersFormatted = [];
         foreach ($headers as $header) {
-            $headerParts = explode(':', $header);
+            // Use preg_split with limit to prevent url splitting caused by ":" inside.
+            $headerParts = preg_split('/[\\s+:\\s+]/', $header, 2);
             $headersFormatted[$headerParts[0]] = $headerParts[1];
         }
 
@@ -119,23 +112,10 @@ class Frontend implements SubscriberInterface
     }
 
     /**
-     * @return array
-     */
-    private function getPluginConfig()
-    {
-        $pluginName = $this->container->getParameter('kiel_coding_security_headers.plugin_name');
-
-        return $this->container->get('shopware.plugin.cached_config_reader')->getByPluginName($pluginName);
-    }
-
-    /**
      * @return bool
      */
     private function isSecure()
     {
-        /** @var DetachedShop $shop */
-        $shop = $this->container->get('shop');
-
-        return $shop->getSecure();
+        return Shopware()->Shop()->getSecure();
     }
 }

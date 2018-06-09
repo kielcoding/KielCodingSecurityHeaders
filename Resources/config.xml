@@ -80,8 +80,8 @@
             <name>customHeaders</name>
             <label>Custom Headers</label>
             <label lang="de">Eigene Headers</label>
-            <description>E.g. X-Powered-By: My Company Name</description>
-            <description lang="de">Z.B. X-Powered-By: Mein Firmenname</description>
+            <description>Split header name and value with ":"; split multiple headers with line break.E.g. X-Powered-By: My Company Name.</description>
+            <description lang="de">Header-Name und -Wert mittels ":" trennen; mehrere Header mittels Zeilenumbruch trennen. Z.B. X-Powered-By: Mein Firmenname.</description>
         </element>
     </elements>
 </config>
