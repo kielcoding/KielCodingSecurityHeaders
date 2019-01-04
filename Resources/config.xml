@@ -34,6 +34,12 @@
             <value>true</value>
         </element>
         <element type="boolean">
+            <name>featurePolicyEnabled</name>
+            <label>Enable Feature-Policy</label>
+            <label lang="de">Feature-Policy aktivieren</label>
+            <value>true</value>
+        </element>
+        <element type="boolean">
             <name>contentSecurityPolicyEnabled</name>
             <label>Enable Content-Security-Policy</label>
             <label lang="de">Content-Security-Policy aktivieren</label>
@@ -70,6 +76,11 @@
             <name>referrerPolicy</name>
             <label>Referrer-Policy</label>
             <value>no-referrer</value>
+        </element>
+        <element>
+            <name>featurePolicy</name>
+            <label>Feature-Policy</label>
+            <value>vibrate 'none'; geolocation 'none'; microphone 'none'; camera 'none'</value>
         </element>
         <element>
             <name>contentSecurityPolicy</name>
