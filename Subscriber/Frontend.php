@@ -50,28 +50,28 @@ class Frontend implements SubscriberInterface
     private function setSecurityHeaders(\Enlight_Controller_Response_ResponseHttp $response)
     {
         if ($this->config['strictTransportSecurityEnabled']) {
-            $response->setHeader('Strict-Transport-Security', $this->config['strictTransportSecurity']);
+            $response->setHeader('Strict-Transport-Security', $this->config['strictTransportSecurity'], true);
         }
         if ($this->config['xFrameOptionsEnabled']) {
-            $response->setHeader('X-Frame-Options', $this->config['xFrameOptions']);
+            $response->setHeader('X-Frame-Options', $this->config['xFrameOptions'], true);
         }
         if ($this->config['xXssProtectionEnabled']) {
-            $response->setHeader('X-XSS-Protection', $this->config['xXssProtection']);
+            $response->setHeader('X-XSS-Protection', $this->config['xXssProtection'], true);
         }
         if ($this->config['xContentTypeOptionsEnabled']) {
-            $response->setHeader('X-Content-Type-Options', $this->config['xContentTypeOptions']);
+            $response->setHeader('X-Content-Type-Options', $this->config['xContentTypeOptions'], true);
         }
         if ($this->config['referrerPolicyEnabled']) {
-            $response->setHeader('Referrer-Policy', $this->config['referrerPolicy']);
+            $response->setHeader('Referrer-Policy', $this->config['referrerPolicy'], true);
         }
         if ($this->config['featureolicyEnabled']) {
             $response->setHeader('Feature-Policy', $this->config['featurePolicy']);
         }
         if ($this->config['contentSecurityPolicyEnabled'] && $this->isSecure()) {
             if ($this->config['contentSecurityPolicyDebug']) {
-                $response->setHeader('Content-Security-Policy-Report-Only', $this->config['contentSecurityPolicy']);
+                $response->setHeader('Content-Security-Policy-Report-Only', $this->config['contentSecurityPolicy'], true);
             } else {
-                $response->setHeader('Content-Security-Policy', $this->config['contentSecurityPolicy']);
+                $response->setHeader('Content-Security-Policy', $this->config['contentSecurityPolicy'], true);
             }
         }
     }
@@ -82,7 +82,7 @@ class Frontend implements SubscriberInterface
     private function setCustomHeaders(\Enlight_Controller_Response_ResponseHttp $response)
     {
         foreach ($this->getCustomHeaders() as $header => $value) {
-            $response->setHeader($header, $value);
+            $response->setHeader($header, $value, true);
         }
     }
 
