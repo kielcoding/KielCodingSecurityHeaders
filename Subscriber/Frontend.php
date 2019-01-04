@@ -64,6 +64,9 @@ class Frontend implements SubscriberInterface
         if ($this->config['referrerPolicyEnabled']) {
             $response->setHeader('Referrer-Policy', $this->config['referrerPolicy']);
         }
+        if ($this->config['featureolicyEnabled']) {
+            $response->setHeader('Feature-Policy', $this->config['featurePolicy']);
+        }
         if ($this->config['contentSecurityPolicyEnabled'] && $this->isSecure()) {
             if ($this->config['contentSecurityPolicyDebug']) {
                 $response->setHeader('Content-Security-Policy-Report-Only', $this->config['contentSecurityPolicy']);
